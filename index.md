@@ -4,7 +4,7 @@ title: Etusivu
 
 # Tehtäväpalautukset
 
-- [Viikko 1](vko1.md)
+- [Viikko 1](vko1.html)
 - [Viikko 2](vko2.md)
 - [Viikko 3](vko3.md)
 - [Viikko 4](vko4.md)
