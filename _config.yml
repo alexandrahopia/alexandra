@@ -1,6 +1,6 @@
 title: Alexandra
 description: Kurssin tehtävät
-theme: jekyll-theme-architect
+theme: jekyll-theme-cayman
 
 header_pages:
   - vko1.html    # tai vko1.md, jos käytät md-versiota
