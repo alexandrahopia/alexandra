@@ -1,5 +1,5 @@
 ---
-title: Harjoitustyo
+title: harjoitustyö
 ---
 # Harjoitustyo
 
