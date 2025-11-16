@@ -1,6 +1,5 @@
----
-title: Viikko 3
----
 # Viikko 3
+Tässä tehtävässä tein Vite + React -sovelluksen ja vein sen GitHub Pagesiin.
 
-Tähän viikon 3 tehtävän sisältö.
+👉 [Avaa viikko 3 Vite + React -sovellus](vko3/)
+
