@@ -1,13 +1,14 @@
-import './App.css'
+import LoginForm from "./LoginForm";
 
 function App() {
   return (
     <div>
-      <h1>Viikko 3 – Vite + React</h1>
-      <p>Tämä on minun Vite + React -sovellus tälle kurssille.</p>
+      <h1>Viikko 4 – Firebase Login</h1>
+      <LoginForm />
     </div>
   );
 }
 
 export default App;
+
 
