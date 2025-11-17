@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import firebaseConfig from "../firebaseConfig";
+import firebaseConfig from "./firebaseConfig";
 
 function LoginForm() {
   const app = initializeApp(firebaseConfig);

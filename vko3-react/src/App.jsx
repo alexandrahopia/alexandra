@@ -1,14 +1,12 @@
-import LoginForm from "./LoginForm";
-
 function App() {
   return (
     <div>
-      <h1>Viikko 4 – Firebase Login</h1>
-      <LoginForm />
+      <h2>REACT TESTI – TÄMÄ TEKSTI TULEE APP.JSX:STÄ</h2>
     </div>
   );
 }
 
 export default App;
+
 
 
