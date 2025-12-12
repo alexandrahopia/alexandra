@@ -1,6 +1,8 @@
 ---
 title: Viikko 6
 ---
-# Viikko 6
 
-Tähän viikon 6 tehtävän sisältö.
+Tässä on viikkotehtävä 6.
+
+👉 React-sovellus:
+https://alexandrahopia.github.io/alexandra/vko6/
