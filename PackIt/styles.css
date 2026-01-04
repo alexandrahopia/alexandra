@@ -1,14 +1,19 @@
-<<<<<<< HEAD
 :root{
   --bg:#eaf3ff;
   --card:#ffffff;
   --text:#111827;
   --muted:#4b5563;
   --border:#d1d5db;
+
+  /* uusi selkeä pääväri */
+  --primary:#1d4ed8;      /* sininen */
+  --primaryText:#ffffff;
+  --primaryHover:#1e40af;
   --focus:#111827;
 }
 
 *{ box-sizing:border-box; }
+
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -20,6 +25,9 @@ body{
 .topbar{
   background:var(--card);
   border-bottom:1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav{
@@ -30,18 +38,32 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:12px;
+  flex-wrap: wrap; /* ✅ responsiivinen */
 }
 
 .brand{
   font-weight:700;
   text-decoration:none;
   color:var(--text);
+  white-space: nowrap;
+}
+
+.links{
+  display:flex;          /* ✅ aiemmin puuttui */
+  align-items:center;
+  gap:10px;              /* ✅ selkeä väli */
+  flex-wrap: wrap;       /* ✅ menee seuraavalle riville */
+  justify-content:flex-end;
 }
 
 .links a{
-  margin-left:12px;
   text-decoration:none;
   color:var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.links a:hover{
+  background: rgba(29, 78, 216, 0.08);
 }
 
 .container{
@@ -64,22 +86,37 @@ body{
   gap:10px;
   flex-wrap:wrap;
   margin-top:12px;
+  align-items:center;
 }
 
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:10px 14px;
   border-radius:12px;
-  border:1px solid var(--text);
-  background:var(--text);
-  color:#fff;
+  border:1px solid var(--primary);
+  background:var(--primary);
+  color:var(--primaryText);
   text-decoration:none;
   cursor:pointer;
+  font-weight: 600;
+  min-height: 42px;
+}
+
+.btn:hover{
+  background: var(--primaryHover);
+  border-color: var(--primaryHover);
 }
 
 .btn.ghost{
   background:transparent;
-  color:var(--text);
+  color:var(--primary);          /* ✅ näkyy varmasti */
+  border-color: var(--primary);  /* ✅ näkyy varmasti */
+}
+
+.btn.ghost:hover{
+  background: rgba(29, 78, 216, 0.10);
 }
 
 input, select, button, textarea{
@@ -107,28 +144,27 @@ label{ display:block; margin:10px 0 6px; }
   outline-offset: 2px;
 }
 
-/* responsiivisuus */
+/* responsiivinen grid */
 .grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:12px;
 }
+
+/* mobiilissa kaikki allekkain + nav keskitetymmäksi */
 @media (max-width: 760px){
   .grid{ grid-template-columns: 1fr; }
-  .links a{ margin-left:8px; }
-}
-=======
-body {
-    background-color: #d2e2f2;
-    font-family: Roboto, sans-serif;
-}
 
-h1 {
-    color: #333;
-}
+  .nav{
+    justify-content: center;
+  }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
+  .links{
+    justify-content: center;
+    width: 100%;
+  }
+
+  .links a, .links button{
+    width: auto;
+  }
 }
->>>>>>> 91b91d688c7445a379810805686e2da541f42193
