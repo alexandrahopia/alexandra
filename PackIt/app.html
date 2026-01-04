@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sovellus – PackIt Lite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">PackIt Lite</a>
+      <div class="links">
+        <a href="app.html">Sovellus</a>
+        <a href="reports.html">Raportit</a>
+        <button id="logoutBtn" class="btn ghost" type="button">Kirjaudu ulos</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Sää + pakkauslista</h1>
+    <p class="muted">Lisää matka, hae sää ja muokkaa listaa. Kaikki tallentuu käyttäjällesi.</p>
+
+    <section class="card" aria-label="Lisää matka">
+      <h2>Lisää matka</h2>
+
+      <form id="tripForm" class="grid">
+        <div>
+          <label for="city">Kaupunki</label>
+          <input id="city" required placeholder="esim. Helsinki" />
+        </div>
+
+        <div>
+          <label for="startDate">Alkaa</label>
+          <input id="startDate" type="date" required />
+        </div>
+
+        <div>
+          <label for="endDate">Päättyy</label>
+          <input id="endDate" type="date" required />
+        </div>
+
+        <div>
+          <label for="filterSelect">Suodatin</label>
+          <select id="filterSelect">
+            <option value="upcoming">Tulevat</option>
+            <option value="past">Menneet</option>
+            <option value="all">Kaikki</option>
+          </select>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="search">Hae matkoista</label>
+          <input id="search" placeholder="kirjoita kaupungin nimi..." />
+        </div>
+
+        <div class="row" style="grid-column: 1 / -1;">
+          <button class="btn" type="submit">Hae sää + tee lista</button>
+          <p id="status" class="muted" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-label="Nykyinen lista">
+      <h2>Pakkauslista</h2>
+      <p class="muted" id="weatherLine"></p>
+
+      <div class="row">
+        <input id="newItem" placeholder="Lisää oma tavara..." aria-label="Lisää oma tavara" />
+        <button id="addItemBtn" class="btn" type="button">Lisää</button>
+      </div>
+
+      <ul id="packingList"></ul>
+
+      <div class="row">
+        <button id="saveBtn" class="btn" type="button">Tallenna matka</button>
+        <button id="clearBtn" class="btn ghost" type="button">Tyhjennä lista</button>
+      </div>
+
+      <p class="muted" id="saveMsg" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-label="Omat matkat">
+      <h2>Omat matkat</h2>
+      <div id="trips"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kirjaudu – PackIt Lite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">PackIt Lite</a>
+      <div class="links">
+        <a href="login.html">Kirjaudu</a>
+        <a href="app.html">Sovellus</a>
+        <a href="reports.html">Raportit</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Kirjaudu</h1>
+    <p class="muted">Tee käyttäjä tai kirjaudu sisään.</p>
+
+    <div class="grid">
+      <section class="card" aria-label="Kirjautuminen">
+        <h2>Kirjaudu sisään</h2>
+
+        <form id="loginForm">
+          <label for="loginEmail">Sähköposti</label>
+          <input id="loginEmail" type="email" autocomplete="email" required />
+
+          <label for="loginPass">Salasana</label>
+          <input id="loginPass" type="password" autocomplete="current-password" required minlength="6" />
+
+          <div class="row">
+            <button class="btn" type="submit">Kirjaudu</button>
+          </div>
+
+          <p id="loginMsg" class="muted" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card" aria-label="Rekisteröityminen">
+        <h2>Tee käyttäjä</h2>
+
+        <form id="registerForm">
+          <label for="regEmail">Sähköposti</label>
+          <input id="regEmail" type="email" autocomplete="email" required />
+
+          <label for="regPass">Salasana (vähintään 6 merkkiä)</label>
+          <input id="regPass" type="password" autocomplete="new-password" required minlength="6" />
+
+          <div class="row">
+            <button class="btn" type="submit">Rekisteröidy</button>
+          </div>
+
+          <p id="regMsg" class="muted" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script type="module">
+    import { login, register, watchAuth } from "./auth.js";
+
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const loginMsg = document.getElementById("loginMsg");
+    const regMsg = document.getElementById("regMsg");
+
+    watchAuth((user) => {
+      if (user) window.location.href = "app.html";
+    });
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      loginMsg.textContent = "Kirjaudutaan...";
+      try {
+        await login(
+          document.getElementById("loginEmail").value.trim(),
+          document.getElementById("loginPass").value
+        );
+        loginMsg.textContent = "OK!";
+      } catch (err) {
+        loginMsg.textContent = "Virhe: " + (err?.message || "kirjautuminen ei onnistunut");
+      }
+    });
+
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      regMsg.textContent = "Luodaan käyttäjä...";
+      try {
+        await register(
+          document.getElementById("regEmail").value.trim(),
+          document.getElementById("regPass").value
+        );
+        regMsg.textContent = "OK!";
+      } catch (err) {
+        regMsg.textContent = "Virhe: " + (err?.message || "rekisteröinti ei onnistunut");
+      }
+    });
+  </script>
+</body>
+</html>

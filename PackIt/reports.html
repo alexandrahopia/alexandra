@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raportit – PackIt Lite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">PackIt Lite</a>
+      <div class="links">
+        <a href="login.html">Kirjaudu</a>
+        <a href="app.html">Sovellus</a>
+        <a href="reports.html">Raportit</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Raportit</h1>
+    <p class="muted">Lyhyet testit ja perustelut arviointia varten.</p>
+
+    <section class="card">
+      <h2>Responsiivisuus</h2>
+      <ul>
+        <li>Testasin mobiili (375px), tabletti (768px) ja desktop (1200px).</li>
+        <li>Navigointi pysyy samana ja sisältö menee mobiilissa allekkain.</li>
+        <li>Painikkeet ja lomakekentät pysyy selkeinä eri kokoisilla näytöillä.</li>
+      </ul>
+      <p class="muted">Lisää tähän halutessasi päivämäärä ja pari screenshotia.</p>
+    </section>
+
+    <section class="card">
+      <h2>Selaintestaus</h2>
+      <ul>
+        <li>Testasin: Chrome, Firefox ja Edge.</li>
+        <li>Kirjautuminen, matkan lisäys, säähaku ja Firestore-tallennus toimivat.</li>
+        <li>Toiminnot ja layout käyttäytyivät samalla tavalla eri selaimissa.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Latausaika</h2>
+      <ul>
+        <li>Testasin Lighthouse-työkalulla (Chrome DevTools).</li>
+        <li>Sivu on kevyt: ei isoja kuvia, JS/CSS on pienet ja yksinkertaiset.</li>
+        <li>Mahdolliset parannukset: kuvien optimointi jos myöhemmin lisää kuvia.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Käytettävyys (Nielsen) ja WCAG</h2>
+      <ul>
+        <li>Selkeä ja sama navigointi jokaisella sivulla.</li>
+        <li>Lomakkeissa on labelit, ja virheilmoitukset näkyvät tekstinä.</li>
+        <li>Näppäimistöfokus näkyy (tab-navigointi toimii).</li>
+        <li>Kontrasti on selkeä ja teksti riittävän isoa luettavaksi.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="muted">PackIt Lite – raportit</p>
+  </footer>
+</body>
+</html>
